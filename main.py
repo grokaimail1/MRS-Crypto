@@ -15,9 +15,6 @@ from datetime import datetime
 # -------------------------
 # USER CONFIG
 # -------------------------
-API_KEY = "mDkLZXGeP8WzWdYEEnvNu8k6Gr0Iar"        # Put your Delta API key here (optional)
-API_SECRET = "ViWq44qlpYLV06PIMpIilpXDViKXiskMwxp7o5wNrbjmm1p6rB2SQVvURUiq"    # Put your Delta API secret here (optional)
-
 
 API_KEY = os.environ['API_KEY']
 API_SECRET = os.environ['API_SECRET']
@@ -235,16 +232,9 @@ def run_scan():
         print("❌ No signals found this round.")
 
 # -------------------------
-# AUTO LOOP
+# MAIN (RUNS ONE TIME)
 # -------------------------
-def main_loop():
-    print("🚀 Delta Scanner with WaveTrend + RSI + Bollinger Bands Started (Auto-run every 5 min)")
-    while True:
-        start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print(f"\n🕒 New scan started at {start_time}")
-        run_scan()
-        print(f"💤 Sleeping for {RUN_INTERVAL/60:.0f} minutes...\n")
-        time.sleep(RUN_INTERVAL)
-
 if __name__ == "__main__":
-    main_loop()
+    print("🚀 Running Delta Crypto Scanner (single run mode)...")
+    run_scan()
+    print("✅ Scan complete. Exiting.")
