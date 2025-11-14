@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-   - cron: '30 12 * * 1-5'   # 12:30 UTC = 18:00 IST, Mon–Fri
+   - cron: "*/15 * * * *"   # 12:30 UTC = 18:00 IST, Mon–Fri
   workflow_dispatch: {}       # manual trigger available
 
 jobs:
